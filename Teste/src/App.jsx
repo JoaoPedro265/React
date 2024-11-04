@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+function Square() {
 
+  const [value, setValue] = useState(null)
+
+  //Acáo do botao
+  function handleClick() {
+    setValue('x');
+  }
+  return <button
+    className="square"
+    onClick={handleClick}
+  >
+    {value}
+  </button>;
+}
+//botoes/aparencia
+export default function Board() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <div className="coluna1">
+        <Square value="1" />
+        <Square value="2" />
+        <Square value="3" />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="coluna2">
+        <Square value="4" />
+        <Square value="5" />
+        <Square value="6" />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="coluna3">
+        <Square value="7" />
+        <Square value="8" />
+        <Square value="9" />
+      </div>
+    </div>
+  );
 }
 
-export default App
