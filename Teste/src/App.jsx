@@ -1,22 +1,19 @@
 import './App.css'
-import { useState } from 'react';
+import { useState } from 'react'
+//definir estado do botao
+function Square(){
+  const[value,setValue]=useState(null)//vai ser vazio por padrao
 
-function Square() {
-
-  const [value, setValue] = useState(null)
-
-  //Acáo do botao
-  function handleClick() {
-    setValue('x');
+  //funcao de click/mudar estado do botao
+  function handleClick(){
+      setValue('X')
   }
-  return <button
-    className="square"
-    onClick={handleClick}
-  >
-    {value}
-  </button>;
+
+//ação do botao
+return <button className="square" onClick={handleClick}>{value}</button>
 }
-//botoes/aparencia
+
+
 export default function Board() {
   return (
     <div>
@@ -38,4 +35,3 @@ export default function Board() {
     </div>
   );
 }
-
